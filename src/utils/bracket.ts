@@ -13,7 +13,7 @@ export function generateBracket(players: Player[]): Match[] {
                 player1Id: null,
                 player2Id: null,
                 winnerId: null,
-                nextMatchId: null,
+                nextMatchId: i === rounds ? null : `match-${i + 1}-${Math.floor(j / 2)}`,
             }
             matches.push(match)
         }

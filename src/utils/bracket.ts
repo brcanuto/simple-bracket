@@ -1,4 +1,4 @@
-import { Match, Player } from "../types/tournament"
+import type { Match, Player } from "../types/tournament"
 
 export function generateBracket(players: Player[]): Match[] {
     const rounds = Math.ceil(Math.log2(players.length))
@@ -15,6 +15,7 @@ export function generateBracket(players: Player[]): Match[] {
                 winnerId: null,
                 nextMatchId: i === rounds ? null : `match-${i + 1}-${Math.floor(j / 2)}`,
             }
+            console.log(`Round ${i}, Match ${j}, nextMatchId: ${match.nextMatchId}`)
             matches.push(match)
         }
     }

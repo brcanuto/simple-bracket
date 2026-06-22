@@ -1,7 +1,10 @@
+import PlayerInput from "./components/PlayerInput"
+
 function App() {
   return (
     <div>
-      <h1>Bracket Maker</h1>
+      <h1>Simple Bracket</h1>
+      <PlayerInput/>
     </div>
   )
 }

@@ -1,9 +1,15 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import type { Player } from "../types/tournament"
 
-function PlayerInput() {
+interface PlayerInputProps {
+    players: Player[]
+    setPlayers: React.Dispatch<React.SetStateAction<Player[]>>
+    onGenerate: () => void
+}
+
+function PlayerInput({players, setPlayers, onGenerate}: PlayerInputProps) {
     const [inputValue, setInputValue] = useState("")
-    const [players, setPlayers] = useState<Player[]>([])
+
 
     const handleAddPlayers = () => {
         if (inputValue.trim() === '') return
@@ -32,7 +38,7 @@ function PlayerInput() {
                 <li key={player.id}>{player.name}</li>
                 ))}
             </ul>
-            {players.length >= 2 && <button>Generate Bracket</button>}
+            {players.length >= 2 && <button onClick={onGenerate}>Generate Bracket</button>}
         </div>
     )
 }

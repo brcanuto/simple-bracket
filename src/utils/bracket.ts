@@ -31,7 +31,7 @@ export function generateBracket(players: Player[]): Match[] {
     const round1Matches = matches.filter(m => m.round === 1)
     
     round1Matches.forEach((match, index) => {
-        match.player1Id = players[index * 2].id
+        match.player1Id = players[index * 2]?.id ?? null
         match.player2Id = players[index * 2 + 1]?.id ?? null
     })
     return matches

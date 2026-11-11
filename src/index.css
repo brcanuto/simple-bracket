@@ -31,3 +31,33 @@ button {
   cursor: pointer;
   margin-bottom: 8px;
 }
+
+.bracket {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+}
+
+.round {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.round-matches {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: space-around;
+  flex: 1;
+}
+
+.match {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  text-align: center;
+  padding: 8px;
+}

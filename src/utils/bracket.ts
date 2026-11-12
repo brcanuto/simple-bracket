@@ -18,6 +18,7 @@ export function generateBracket(players: Player[]): Match[] {
                 winnerId: null,
                 //final round will always be null since any other matches will populate to its parent
                 nextMatchId: i === rounds ? null : `match-${i + 1}-${Math.floor(j / 2)}`,
+                index: j,
             }
             matches.push(match)
         }
@@ -35,4 +36,28 @@ export function generateBracket(players: Player[]): Match[] {
         match.player2Id = players[index * 2 + 1]?.id ?? null
     })
     return matches
+}
+
+export function advanceWinner(matches: Match[], matchId: string, winnerId: string): Match[] {
+
+    const clickedMatch = matches.find(m => m.id === matchId) 
+
+    if (!clickedMatch) {
+        return matches
+    }
+    
+    const updated = matches.map(match => (
+        match.id === matchId ? { ...match, winnerId } : match
+    )).map(match => {
+        if (match.id === clickedMatch.nextMatchId) {
+            if (clickedMatch.index % 2 === 0) {
+                return { ...match, player1Id: winnerId }
+            } else {
+                return { ...match, player2Id: winnerId }
+            }
+        }
+        return match
+    })
+    
+    return updated
 }

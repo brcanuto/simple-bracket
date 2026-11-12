@@ -12,4 +12,5 @@ export interface Match {
     round: number
     winnerId: string | null
     nextMatchId: string | null
+    index: number
 }

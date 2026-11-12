@@ -6,7 +6,7 @@ interface PlayerInputProps {
     setPlayers: React.Dispatch<React.SetStateAction<Player[]>>
     onGenerate: () => void
 }
-
+//TODO: Will need to add UUID for playerID generation in case of duplicate names. For now, will just use name as ID.
 function PlayerInput({players, setPlayers, onGenerate}: PlayerInputProps) {
     const [inputValue, setInputValue] = useState("")
 
